@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use App\Models\User;
 class UpdatePermisosSeeder extends Seeder
 {
     /**
@@ -13,6 +13,12 @@ class UpdatePermisosSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $usuario = User::create([
+            'name' => ' Elias',
+            'email' => 'eliasrj@gmail.com',
+            'password' => bcrypt('abisai145678')
+        ]);
+    
+        $usuario->assignRole('Administrador');
     }
 }
