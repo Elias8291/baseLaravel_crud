@@ -32,4 +32,8 @@ class Grupo extends Model
     {
         return $this->belongsTo(Materia::class, 'materia_clave', 'clave');
     }
+    public function inscripciones()
+    {
+        return $this->hasMany(Inscripcion::class, 'grupo_clave', 'clave');
+    }
 }

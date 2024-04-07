@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\RangoAlumno;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+         // Llama a los seeders específicos aquí
+         $this->call([
+            EstudiantesTableSeeder::class,
+            HorariosTableSeeder::class,
+            RangosAlumnosTableSeeder::class,
+            GruposTableSeeder::class,
+            Materias::class,
+            inscripcionesTablaSeeder::class,
+            // Añade todos los seeders que necesites aquí
+        ]);
     }
 }

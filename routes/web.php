@@ -7,6 +7,8 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\InscripcionController;
+use App\Http\Controllers\GrupoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,4 +37,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('usuarios', UsuarioController::class);
     Route::resource('blogs', BlogController::class);
     Route::resource('estudiantes', EstudianteController::class);
+    Route::resource('inscripciones', InscripcionController::class);
+    Route::resource('grupos', GrupoController::class);
+    Route::get('/grupos/{clave}/generarPDF', [GrupoController::class, 'generarPDF'])->name('grupos.generarPDF');
 });

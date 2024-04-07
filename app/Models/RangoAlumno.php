@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class rangos_alumnos extends Model
+class RangoAlumno extends Model
 {
-    use HasFactory;
+    protected $table = 'rango_alumnos'; // Especifica el nombre de la tabla
+
+    protected $fillable = ['min_alumnos', 'max_alumnos']; // Campos asignables de manera masiva
+
+    // Los campos timestamps están habilitados por defecto
 }
