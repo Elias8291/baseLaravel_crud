@@ -16,13 +16,14 @@ class DatabaseSeeder extends Seeder
     {
          // Llama a los seeders específicos aquí
          $this->call([
+            
             EstudiantesTableSeeder::class,
             HorariosTableSeeder::class,
             RangosAlumnosTableSeeder::class,
-            GruposTableSeeder::class,
             Materias::class,
+            GruposTableSeeder::class,
             inscripcionesTablaSeeder::class,
-            // Añade todos los seeders que necesites aquí
+            SeederTablaPermisos::class
         ]);
     }
 }

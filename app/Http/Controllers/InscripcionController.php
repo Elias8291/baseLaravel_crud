@@ -10,7 +10,14 @@ use App\Models\Grupo;
 
 class InscripcionController extends Controller
 {
-    // Muestra todas las inscripciones
+    function __construct()
+    {
+        $this->middleware('permission:ver-inscripcion|crear-inscripcion|editar-inscripcion|borrar-inscripcion')->only('index');
+        $this->middleware('permission:crear-inscripcion', ['only' => ['create', 'store']]);
+        $this->middleware('permission:editar-inscripcion', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:borrar-inscripcion', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $inscripciones = Inscripcion::with(['alumno', 'grupo'])->paginate(10);
@@ -33,17 +40,17 @@ class InscripcionController extends Controller
             'alumno_numeroDeControl' => 'required|exists:estudiantes,numeroDeControl',
             'grupo_clave' => 'required|exists:grupos,clave',
         ]);
-    
+
         Inscripcion::create([
             'estudiantes_numeroDeControl' => $validatedData['alumno_numeroDeControl'],
             'grupo_clave' => $validatedData['grupo_clave'],
         ]);
-    
+
         return redirect()->route('inscripciones.index')->with('success', 'Inscripción creada correctamente.');
     }
-    
-    
-    
+
+
+
 
     // Muestra una inscripción específica
     public function show($id)

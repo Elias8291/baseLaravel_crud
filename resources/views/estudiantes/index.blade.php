@@ -36,7 +36,7 @@
                                 
                                 <td>
                                     <form action="{{ route('estudiantes.destroy',$estudiante->numeroDeControl) }}" method="POST">                                        
-                                        @can('editar-blog')
+                                        @can('editar-estudiante')
                                         <a class="btn btn-info" href="{{ route('estudiantes.edit',$estudiante->numeroDeControl) }}">Editar</a>
                                         @endcan
 

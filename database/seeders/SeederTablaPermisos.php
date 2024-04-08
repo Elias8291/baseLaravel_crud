@@ -29,7 +29,19 @@ class SeederTablaPermisos extends Seeder
             'editar-estudiante',
             'borrar-estudiante',
 
-            'Materias estudiante'
+            'ver-usuario',
+            'crear-usuario',
+            'editar-usuario',
+            'borrar-usuario',
+            
+            'ver-inscripcion',
+            'crear-inscripcion',
+            'editar-inscripcion',
+            'borrar-inscripcion',
+
+
+            'ver-grupos',
+            'ver_excel_grupo',
         ];
 
         foreach($permisos as $permiso) {

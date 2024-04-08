@@ -9,6 +9,14 @@ use Box\Spout\Writer\Common\Creator\WriterEntityFactory;
 
 class GrupoController extends Controller
 {
+    
+    function __construct()
+    {
+        $this->middleware('permission:ver-grupos|ver_excel_grupo')->only('index');
+        $this->middleware('permission:ver_excel_grupo', ['only' => ['generarPDF']]);
+   
+    }
+    
     public function index()
     {
         $grupos = Grupo::all();
